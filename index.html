@@ -1,61 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Multiplication Table with One Input and One Button</title>
-<style>
-    input {
-font-size: 20px;
-margin: 0;
-padding: 10px;
-border: 1px solid black;
-background-color: white;
-border-radius: 5px;
-}
-button {
-font-size: 20px;
-margin: 10px;
-padding: 10px;
-border: 1px solid black;
-background-color: white;
-border-radius: 5px;
-cursor: pointer;
-color: black;
-}
-#result {
-font-size: 20px;
-margin: 10px;
-padding: 10px;
-border: 1px solid black;
-background-color: white;
-border-radius: 5px;
-cursor: pointer;
-color: black;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* main{
+            background-color: white;
+            width: 500px;
+            height: 300px;
+            box-shadow: 10px 5px 10px black;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+        .load{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .load select{
+           margin: 10px;
+        }
+        #LoadCard{
+            width: 250px;
+            height: 30px;
 
+        }
+        button{
+            width: 100px;
+            height: 30px;
 
-</style>
+        } */
+    </style>
 </head>
 <body>
-<form>
-<input type="text" name="number" placeholder="Enter 1">
-<button type="submit" value="Multiply">click
-</button>
-</form>
-<p>The result is: <span id="result"></span></p>
-<script>
-    var counter = 1;
- var result = document.getElementById("result");
- var inputNumber = document.getElementById("number");
-  function onclick() {
- while (counter < 16) {
- result.innerHTML = counter * inputNumber.value;
- counter += 1;
- }
- }
- 
- 
- </script>
+    <main>
+        <div class="load">
+        <h2>Network Provider</h2>
+        <select name="" id="network">
+            <option value="MTN">MTN</option>
+            <option value="MTN">glo</option>
+            <option value="MTN">airtel</option>
+            <option value="MTN">9mobil</option>
+        </select>
+        <label for="">Amount</label>
+        <select name="" id="amount">
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="200">500</option>
+            <option value="200">1000</option>
+        </select>
+
+         <button onclick="genPin()">Generate Pin</button> 
+        <h1 id="displayPin"></h1>
+
+        <h1>Load Airtime</h1>
+        <input type="text" placeholder="*555*pin#" id="LoadCard">
+        <button onclick="LoadAirCard()">click</button>
+        <!-- <h1 id="dev"></h1> -->
+        </div>
+    </main>
 </body>
 </html>
+<script>
+    let amount = document.getElementById("amount");
+    let network = document.getElementById("network");
 
 
+    function genPin(){
+        let pin = "";
+            for (let i = 0; i < 15; i++) {
+                    pin += Math.floor(Math.random() * 10);
+                }
+        displayPin.innerHTML = pin
+    }
+    let LoadAirtime = document.getElementById("LoadCard");
+
+    function LoadAirCard() {
+        let pin = document.getElementById("displayPin").innerHTML
+        if(!LoadAirtime.value.startsWith("*555") || !LoadAirtime.value.endsWith("#")){
+            alert("Invalid Code")
+        }else{
+            alert(`congratulation! your 100# plan has been activated`)
+        }
+    }
+</script>

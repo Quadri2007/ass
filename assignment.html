@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Multiplication Table with One Input and One Button</title>
+<style>
+    input {
+font-size: 20px;
+margin: 0;
+padding: 10px;
+border: 1px solid black;
+background-color: white;
+border-radius: 5px;
+}
+button {
+font-size: 20px;
+margin: 10px;
+padding: 10px;
+border: 1px solid black;
+background-color: white;
+border-radius: 5px;
+cursor: pointer;
+color: black;
+}
+#result {
+font-size: 20px;
+margin: 10px;
+padding: 10px;
+border: 1px solid black;
+background-color: white;
+border-radius: 5px;
+cursor: pointer;
+color: black;
+}
+
+
+</style>
+</head>
+<body>
+<form>
+<input type="text" name="number" placeholder="Enter 1">
+<button type="submit" value="Multiply">click
+</button>
+</form>
+<p>The result is: <span id="result"></span></p>
+<script>
+    var counter = 1;
+ var result = document.getElementById("result");
+ var inputNumber = document.getElementById("number");
+  function onclick() {
+ while (counter < 16) {
+ result.innerHTML = counter * inputNumber.value;
+ counter += 1;
+ }
+ }
+ 
+ 
+ </script>
+</body>
+</html>
+
+
